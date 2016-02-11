@@ -1,0 +1,9 @@
+@import '~hdo-bootstrap/hdo-bootstrap.scss';
+@import './hdo-components.scss';
+
+header {
+    .search {
+        @extend .form-control;
+        margin-top: 2.5rem;
+    }
+}

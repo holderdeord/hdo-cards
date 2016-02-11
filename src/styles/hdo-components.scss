@@ -1,0 +1,134 @@
+// todo: move these to hdo-bootstrap
+
+header {
+  h1 {
+    font-size: 2rem;
+    padding-top: 2rem;
+    font-weight: 300;
+
+    @media (max-width: 385px) {
+      padding-top: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  .sharing-links {
+    padding-top: 2.5rem;
+    color: #455068;
+    span { padding-left: 1rem; }
+
+    @media screen and (max-width: 48em) {
+      text-align: center;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.hdo-logo {
+  margin-top: 1rem;
+  padding-top: 3rem;
+  text-align: left;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 2.5rem;
+
+  @media screen and (max-width: 48em) {
+    text-align: center;
+    background-position: 50% 0;
+  }
+}
+
+.hdo-card {
+  background-color: #fff;
+  box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+  margin-top: 2rem;
+
+  .hdo-card-header {
+    background-color: #fcfcfc;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 1px rgba(0,0,0,.12);
+
+    $border-color: #ddd;
+
+    &.top-border {
+      border-top: 1px solid $border-color;
+    }
+
+    &.bottom-border {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+.other-services {
+  a {
+    text-decoration: none;
+  }
+
+  .service {
+    filter: grayscale(0.4);
+    transition: all 0.3s ease;
+
+    .img {
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+      background-position: 50% 50%;
+    }
+
+    &:hover {
+      filter: none;
+      background-color: lighten(#b8bfcc, 15%);
+      // a { color: #eee; }
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+
+  &:active, &:hover {
+  }
+}
+
+html ::selection {
+    background-color: #fadd00;
+}
+
+footer {
+  display: block;
+  position: relative;
+  margin: 4rem 0;
+  text-align: center;
+  opacity: 0.8;
+
+  .links {
+    padding-top: 1rem;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
