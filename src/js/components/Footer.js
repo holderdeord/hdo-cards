@@ -4,9 +4,9 @@ export default class Footer extends Component {
     render() {
         return (
             <footer>
-                <div className="col-md-4 col-md-offset-4">
+                <div>
                     <a href="https://www.holderdeord.no/">
-                        <div className="hdo-logo" style={{backgroundPosition: '50% 0', margin: '0'}}  />
+                        <div className="hdo-logo" />
                     </a>
 
                     <h4>Holder de ord &copy; {new Date().getFullYear()}</h4>
@@ -23,7 +23,6 @@ export default class Footer extends Component {
                         &nbsp;&middot;&nbsp;
                         <a href="https://twitter.com/holderdeord/" alt="Holder de ord på Twitter">@holderdeord</a>
                     </p>
-
                 </div>
             </footer>
         );
