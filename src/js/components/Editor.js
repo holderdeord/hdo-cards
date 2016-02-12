@@ -11,7 +11,7 @@ export default class Editor extends Component {
                     <textarea
                         value={this.state.text}
                         onChange={(e) => this.setState({text: e.target.value})}
-                        width="100%" />
+                        style={{width: "100%"}} />
                 </div>
 
                 <div className="col-md-6">
