@@ -64,8 +64,13 @@ glob(path.resolve(input, '*.styled.json'))
     .catch(console.error);
 
 const getFirstParagraph = (cardStack) => {
-    const paras = cardStack.cards[0] ? cardStack.cards[0].text : null;
-    return paras && paras[0] ? paras[0].value : '';
+    if (cardStack.cards.length && cardStack.cards[0].body) {
+        const para = cardStack.cards[0].body.find(e => e.type === 'text');
+
+        if (para) {
+            return para.value || '';
+        }
+    }
 }
 
 const parseJson = (content) => {
