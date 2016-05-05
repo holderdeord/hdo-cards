@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
-import fetch from 'isomorphic-fetch';
+import { fetchJson } from '../utils';
 
 export default class CardStackIndex extends Component {
     state = {index: {stacks: []}};
 
     componentDidMount() {
-        fetch('data/index.json')
-            .then(res => res.ok ? res.json() : Promise.reject(`failed to fetch index: ${res.status}`))
+        fetchJson('data/index.json')
             .then(index => this.setState({index}))
     }
 
     render() {
+        const stacks = this.state.index.stacks.sort(
+            (a, b) => moment(a.modification.date).valueOf() - moment(b.modification.date).valueOf()
+        );
+
         return (
             <div className="card-stack-index row">
                 {this.state.index.stacks.map(i => (

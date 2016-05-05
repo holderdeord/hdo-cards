@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
+import { fetchJson } from '../utils';
 import moment from 'moment';
 
 export default class Widget extends Component {
@@ -26,8 +26,7 @@ class VoteWidget extends Component {
 
     componentWillMount() {
         if (this.props.id) {
-            fetch(`https://www.holderdeord.no/api/votes/${this.props.id}`)
-                .then(res => res.ok ? res.json() : Promise.reject(new Error(`unable to fetch vote with id: ${this.props.id}`)))
+            fetchJson(`https://www.holderdeord.no/api/votes/${this.props.id}`)
                 .then(data => this.setState({data}))
             }
 

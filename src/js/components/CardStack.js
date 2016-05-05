@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import fetch from 'isomorphic-fetch';
 import moment from 'moment';
+import { fetchJson } from '../utils';
 
 import Card from './Card';
 
@@ -10,8 +10,7 @@ export default class CardStack extends Component {
     componentWillMount() {
         const { params: { id } } = this.props;
 
-        fetch(`https://files.holderdeord.no/gdrive/${id}.styled.json`)
-            .then(res => res.ok ? res.json() : Promise.reject(new Error(`unable to fetch card stack ${id}: ${res.status} ${res.statusText} ${res.type}`)))
+        fetchJson(`https://files.holderdeord.no/gdrive/${id}.styled.json`)
             .then(stack => this.setState({stack}));
     }
 

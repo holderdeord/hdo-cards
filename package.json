@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server/dev-server.js",
     "lint": "eslint src/",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js --bail --optimize-minimize --optimize-occurence-order --optimize-dedupe && mkdir -p build/data && cp -R $(find public -type f | grep -v public/data | xargs) build/"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js --bail --optimize-minimize --optimize-occurence-order --optimize-dedupe && mkdir -p build/data && cp -R $(find public -type f | grep -v public/data | xargs) build/",
+    "deploy": "[[ -z $(git status --porcelain) ]] && [[ -z $(git cherry -v) ]] && ssh hdo@hdo02.holderdeord.no 'cd /webapps/hdo-cards && git pull --ff-only && npm install && npm run build'"
   },
   "author": "jari@holderdeord.no",
   "license": "BSD-3-Clause",
