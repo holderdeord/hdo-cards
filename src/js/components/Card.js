@@ -4,13 +4,17 @@ import Widget from './Widget';
 export default class Card extends Component {
     render() {
         return (
-            <div className="row">
-                <div className="col-md-12">
-                    <h3>{this.props.index}. {this.props.head}</h3>
+            <div className="hdo-card m-b-1 m-r-1 m-t-0">
+                <div className="p-x-2 p-y-1" style={{borderBottom: '1px solid #eee'}}>
+                    <h4>{this.props.index}. {this.props.head}</h4>
+                </div>
+
+                <div className="p-a-2">
                     {this.props.body.map(::this.renderBodyElement)}
                 </div>
 
-                <hr />
+
+
             </div>
         )
     }

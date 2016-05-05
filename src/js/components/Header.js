@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 // import SharingLinks from './SharingLinks';
 
 export default class Header extends Component {
@@ -7,11 +8,11 @@ export default class Header extends Component {
             <header>
                 <div className="row">
                     <div className="col-md-2">
-                        <a href="http://www.holderdeord.no/">
+                        <Link to="/">
                             <div className="hdo-logo">
                                 <strong>Holder de ord</strong>
                             </div>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="col-md-8 text-xs-center fadeInDown">
