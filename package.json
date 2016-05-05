@@ -11,6 +11,7 @@
   },
   "author": "jari@holderdeord.no",
   "license": "BSD-3-Clause",
+  "repository": "https://github.com/holderdeord/hdo-cards",
   "babel": {
     "presets": [
       "react",
@@ -33,6 +34,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "bluebird": "^3.3.5",
     "css-loader": "^0.23.1",
+    "debug": "^2.2.0",
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
