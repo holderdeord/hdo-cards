@@ -1,26 +1,27 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 import fetch from 'isomorphic-fetch';
-import CardStack from './CardStack';
 
 export default class CardStackIndex extends Component {
-    state = {};
+    state = {index: {stacks: []}};
 
     componentDidMount() {
-        fetch('https://data.holderdeord.no/api/issues')
-            .then(res => res.ok ? res.json() : Promise.reject(`status: ${res.status}`))
-            .then(data => this.setState({issues: data._embedded.issues}))
+        fetch('data/index.json')
+            .then(res => res.ok ? res.json() : Promise.reject(`failed to fetch index: ${res.status}`))
+            .then(index => this.setState({index}))
     }
 
     render() {
-        if (!this.state.issues) {
-            return null;
-        }
-
         return (
-            <div className="row">
-                {this.state.issues.map(i => (
-                    <div className="col-md-4" key={i.slug}>
-                        <CardStack title={i.title} description={i.description} />
+            <div className="card-stack-index row">
+                {this.state.index.stacks.map(i => (
+                    <div className="col-md-4" key={i.id}>
+                        <Link to={`/stacks/${i.id}`}>
+                            <div className="hdo-card">
+                                <h2 className="hdo-card-header p-a-2">{i.title}</h2>
+                                <p className="p-a-1">{i.description.slice(0, 100)}…</p>
+                            </div>
+                        </Link>
                     </div>
                 ))}
             </div>

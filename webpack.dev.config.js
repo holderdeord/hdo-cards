@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
 
 module.exports = {
     devtool: 'eval',
@@ -35,7 +37,17 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb$/),
+
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+
         new webpack.HotModuleReplacementPlugin()
     ],
+
+    postcss: function() {
+        return [autoprefixer, precss];
+    },
 
 };

@@ -15,7 +15,8 @@ const argv = yargs
     .argv;
 
 const [ docsPath ] = argv._;
-const indexPath = path.resolve(__dirname, '../public/data/index.json');
+const outputDir = path.resolve(__dirname, '../public/data')
+const indexPath = path.join(outputDir, 'index.json');
 
 glob(path.resolve(docsPath, '*.styled.json'))
     .then(files => {
@@ -24,7 +25,7 @@ glob(path.resolve(docsPath, '*.styled.json'))
                 .then(data => {
                     const index = { stacks: [] };
 
-                    data.forEach((d, i) => {
+                    return Promise.map(data, (d, i) => {
                         const file = files[i];
 
                         if (!d || !d.data) {
@@ -36,16 +37,22 @@ glob(path.resolve(docsPath, '*.styled.json'))
                             index.stacks.push({
                                 title: d.data.title,
                                 modification: d.modification,
+                                description: getFirstParagraph(d.data),
                                 id: path.basename(file, '.styled.json')
                             });
-                        }
-                    });
 
-                    return fs.writeFile(indexPath, JSON.stringify(index));
+                            return fs.writeFile(path.join(outputDir, path.basename(file)));
+                        }
+                    })
+                    .then(() => fs.writeFile(indexPath, JSON.stringify(index)));
                 });
     })
     .catch(console.error);
 
+const getFirstParagraph = (cardStack) => {
+    const paras = cardStack.cards[0] ? cardStack.cards[0].text : null;
+    return paras && paras[0] ? paras[0].value : '';
+}
 
 const parseJson = (content) => {
     try {

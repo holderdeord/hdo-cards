@@ -14,7 +14,7 @@ export default class Footer extends Component {
                     <div>
                         <small>
                             <div>Kildekode på <a href="https://github.com/holderdeord/hdo-cards">GitHub</a> lisensiert under <a href="http://opensource.org/licenses/BSD-3-Clause">BSD</a>.</div>
-                            <div>Spørsmål? Ta <a href="mailto:&#106;&#97;&#114;&#105;&#0064;&#104;&#111;&#108;&#100;&#101;&#114;&#100;&#101;&#111;&#114;&#100;.&#110;&#111;" style={{textDecoration: 'underline'}}>kontakt</a>.</div>
+                            <div>Spørsmål? Ta <a href="mailto:kontakt@holderdeord.no" style={{textDecoration: 'underline'}}>kontakt</a>.</div>
                         </small>
                     </div>
 
