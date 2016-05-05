@@ -4,12 +4,9 @@
   "description": "Cards stacks that explain issues in Norwegian politics.",
   "main": "bundle.js",
   "scripts": {
-    "prestart": "npm run task",
-    "start": "node server/server.js",
     "dev": "node server/dev-server.js",
-    "lint": "eslint components",
-    "task": "webpack",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --bail --optimize-minimize --optimize-occurence-order --optimize-dedupe"
+    "lint": "eslint src/",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.js --bail --optimize-minimize --optimize-occurence-order --optimize-dedupe && mkdir -p build/data && cp -R $(ls public/* | grep -v agreement.json | xargs) build/"
   },
   "author": "jari@holderdeord.no",
   "license": "BSD-3-Clause",

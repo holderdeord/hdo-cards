@@ -6,24 +6,38 @@ import path from 'path';
 import Promise from 'bluebird';
 import fs from 'fs-promise';
 import debug from 'debug';
+import moment from 'moment';
 
-const log = debug('hdo-cards:update')
+const log = debug('hdo-cards:update');
 
-const argv = yargs
-    .usage('$0 <docs-path> [args]')
-    .demand(1)
+const {
+    input,
+    output
+} = yargs
+    .usage('$0 --input <path> --output <path>')
+    .option('input', {
+        alias: 'i',
+        type: 'string',
+        describe: 'Where to find docs data.',
+    })
+    .option('output', {
+        alias: 'o',
+        type: 'string',
+        describe: 'Where to save the result data.',
+        required: true
+    })
+    .help('help')
+    .demand('input', 'output')
     .argv;
 
-const [ docsPath ] = argv._;
-const outputDir = path.resolve(__dirname, '../public/data')
-const indexPath = path.join(outputDir, 'index.json');
+const indexPath = path.resolve(output, 'index.json');
 
-glob(path.resolve(docsPath, '*.styled.json'))
+glob(path.resolve(input, '*.styled.json'))
     .then(files => {
         return Promise.map(files, f => fs.readFile(f, 'utf-8')
                 .then(parseJson))
                 .then(data => {
-                    const index = { stacks: [] };
+                    const index = { stacks: [], lastUpdate: moment().format() };
 
                     return Promise.map(data, (d, i) => {
                         const file = files[i];
@@ -41,7 +55,7 @@ glob(path.resolve(docsPath, '*.styled.json'))
                                 id: path.basename(file, '.styled.json')
                             });
 
-                            return fs.writeFile(path.join(outputDir, path.basename(file)));
+                            // return fs.writeFile(path.join(output, path.basename(file)), JSON.stringify(data));
                         }
                     })
                     .then(() => fs.writeFile(indexPath, JSON.stringify(index)));
