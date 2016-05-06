@@ -17,15 +17,19 @@ const NoMatch = (props) => <p className="lead text-xs-center">Siden ble ikke fun
 
 export default class App extends Component {
     render() {
+        const query = this.props.location.query.q;
+
         return (
-            <div className="container">
-                <Header />
+            <div>
+                <Header query={query} />
+
                 <main>
-                    {this.props.children}
+                    {React.cloneElement(this.props.children, { query })}
                 </main>
+
                 <Footer />
             </div>
-        )
+        );
     }
 }
 

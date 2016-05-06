@@ -13,6 +13,15 @@ main {
         a {
             text-decoration: none;
         }
+
+        .hdo-card {
+            height: 10rem;
+            overflow: hidden;
+        }
+
+        .hdo-card-header {
+            font-size: 1.5rem;
+        }
     }
 
     .card-stack {
@@ -25,10 +34,10 @@ main {
     }
 }
 
-
-
-
 footer {
+    width: 100%;
+    bottom: 0;
+
     .hdo-logo {
         background-position: 50% 0;
         margin: 0;

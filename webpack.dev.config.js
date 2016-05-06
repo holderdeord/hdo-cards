@@ -40,7 +40,8 @@ module.exports = {
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb$/),
 
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            'process.env.LOCAL_INDEX': JSON.stringify(process.env.LOCAL_INDEX === 'true')
         }),
 
         new webpack.HotModuleReplacementPlugin()
