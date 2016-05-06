@@ -20,8 +20,8 @@ module.exports = {
 
     module: {
         loaders: [
-            { test: /\.scss$/, loader: "style!css!sass" },
-            { test: /\.css$/, loader: "style!css" },
+            { test: /\.scss$/, loader: "style!css!postcss!sass" },
+            { test: /\.css$/, loader: "style!css!postcss" },
 
             {
                 test: /\.js$/,
