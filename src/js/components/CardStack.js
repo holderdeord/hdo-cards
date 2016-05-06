@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import moment from 'moment';
 import { fetchJson } from '../utils';
+import { Sticky } from 'react-sticky';
 
 import Card from './Card';
 
@@ -37,11 +38,13 @@ export default class CardStack extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-lg-4">
-                            <div className="card-stack-nav p-x-2 p-y-1">
-                                {data.cards.map((c, i) => <p key={i}>{i + 1}. {c.head}</p>)}
+                            <div className="col-lg-4">
+                                <Sticky>
+                                    <div className="card-stack-nav p-x-2 p-y-1">
+                                        {data.cards.map((c, i) => <p key={i}>{i + 1}. {c.head}</p>)}
+                                    </div>
+                                </Sticky>
                             </div>
-                        </div>
 
                         <div className="col-lg-8 col-sm-12">
                             <div className="p-y-1">

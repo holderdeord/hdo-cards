@@ -4,8 +4,10 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import { Router, Route, hashHistory as history, IndexRoute } from 'react-router';
 import { render } from 'react-dom';
-import moment from 'moment';
 
+import { StickyContainer, Sticky } from 'react-sticky';
+
+import moment from 'moment';
 moment.locale('nb');
 
 import Header from './Header';
@@ -20,7 +22,7 @@ export default class App extends Component {
         const query = this.props.location.query.q;
 
         return (
-            <div>
+            <StickyContainer>
                 <Header query={query} />
 
                 <main>
@@ -28,7 +30,7 @@ export default class App extends Component {
                 </main>
 
                 <Footer />
-            </div>
+            </StickyContainer>
         );
     }
 }
