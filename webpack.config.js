@@ -29,28 +29,27 @@ module.exports = {
                 test: /\.json$/,
                 loader: 'json'
             }
-        ],
+        ]
+    },
 
-        plugins: [
-            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb$/),
+    plugins: [
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb$/),
 
-            new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: JSON.stringify('production'),
-                    LOCAL_INDEX: JSON.stringify(true)
-                }
-            }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production'),
+                LOCAL_INDEX: JSON.stringify(true)
+            }
+        }),
 
-            new webpack.optimize.UglifyJsPlugin({
-                compress:{
-                  warnings: true
-                }
-           })
-        ],
+        new webpack.optimize.UglifyJsPlugin({
+            compress:{
+              warnings: true
+            }
+       })
+    ],
 
-        postcss: function() {
-            return [autoprefixer, precss];
-        },
-
+    postcss: function() {
+        return [autoprefixer, precss];
     }
 };
