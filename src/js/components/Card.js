@@ -6,7 +6,7 @@ export default class Card extends Component {
         return (
             <div className="hdo-card m-b-1 m-r-1 m-t-0">
                 <div className="p-x-2 p-y-1" style={{borderBottom: '1px solid #eee'}}>
-                    <h4>{this.props.index}. {this.props.head}</h4>
+                    <h4>{this.props.index}. {this.props.title}</h4>
                 </div>
 
                 <div className="p-a-2">
@@ -23,7 +23,7 @@ export default class Card extends Component {
         switch (t.type) {
             case 'text':
                 return <p key={i}>{t.value}</p>;
-            case 'subhead':
+            case 'subtitle':
                 return <h5 key={i}>{t.value}</h5>;
             case 'widget':
                 return <Widget key={i} {...t.value} />;

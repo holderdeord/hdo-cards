@@ -41,7 +41,7 @@ export default class CardStack extends Component {
                             <div className="col-lg-4">
                                 <Sticky>
                                     <div className="card-stack-nav p-x-2 p-y-1">
-                                        {data.cards.map((c, i) => <p key={i}>{i + 1}. {c.head}</p>)}
+                                        {data.cards.map((c, i) => <p key={i}>{i + 1}. {c.title}</p>)}
                                     </div>
                                 </Sticky>
                             </div>
