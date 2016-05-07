@@ -8,3 +8,12 @@ export function fetchJson(url) {
         res => res.ok ? res.json() : Promise.reject(new Error(`failed to fetch ${url}: ${res.status} ${res.statusText}`))
     );
 }
+
+export function fetchHdoApi(apiPath) {
+    return fetch(`https://data.holderdeord.no/api/${apiPath}`, {
+        credentials: 'include'
+    })
+    .then(
+        res => res.ok ? res.json() : Promise.reject(new Error(`failed to fetch ${url}: ${res.status} ${res.statusText}`))
+    );
+}

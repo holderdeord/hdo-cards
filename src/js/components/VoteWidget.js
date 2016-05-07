@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { fetchJson } from '../utils';
+import { fetchHdoApi } from '../utils';
 import moment from 'moment';
+
+import PartyLogo from './PartyLogo';
 
 const keyTitles = {
     for: 'For',
@@ -13,7 +15,7 @@ export default class VoteWidget extends Component {
 
     componentWillMount() {
         if (this.props.id) {
-            fetchJson(`https://data.holderdeord.no/api/votes/${this.props.id}`)
+            fetchHdoApi(`votes/${this.props.id}`)
                 .then(vote => this.setState({vote}))
         }
     }
@@ -48,10 +50,7 @@ export default class VoteWidget extends Component {
                             <p>{keyTitles[key]}</p>
 
                             {vote.counts.groups[key].map(p => (
-                                <img key={p.slug}
-                                    src={`https://data.holderdeord.no/api/parties/${p.slug}/logo?version=medium`}
-                                    alt={`${p.name}s logo`}
-                                    width="48px" />
+                                <PartyLogo key={p.slug} slug={p.slug} />
                             ))}
                         </div>
                     ))}

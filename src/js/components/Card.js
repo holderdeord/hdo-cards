@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Widget from './Widget';
 
 export default class Card extends Component {
@@ -12,9 +12,6 @@ export default class Card extends Component {
                 <div className="p-a-2">
                     {this.props.body.map(::this.renderBodyElement)}
                 </div>
-
-
-
             </div>
         )
     }
