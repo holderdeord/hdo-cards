@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import slug from 'slug';
 
 export function fetchJson(url) {
     return fetch(url, {
@@ -16,4 +17,8 @@ export function fetchHdoApi(apiPath) {
     .then(
         res => res.ok ? res.json() : Promise.reject(new Error(`failed to fetch ${url}: ${res.status} ${res.statusText}`))
     );
+}
+
+export function slugify(str) {
+    return slug(str, {lower: true});
 }

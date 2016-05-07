@@ -26,7 +26,17 @@ main {
 
     .card-stack {
         .card-stack-nav {
+            .strong {
+                font-weight: bold;
+            }
 
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         .hdo-card {

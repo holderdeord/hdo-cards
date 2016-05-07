@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Widget from './Widget';
+import { slugify } from '../utils';
 
 export default class Card extends Component {
     render() {
         return (
-            <div className="hdo-card m-b-1 m-r-1 m-t-0">
+            <div id={slugify(this.props.title)} className="hdo-card m-b-1 m-r-1 m-t-0">
                 <div className="p-x-2 p-y-1" style={{borderBottom: '1px solid #eee'}}>
                     <h4>{this.props.index}. {this.props.title}</h4>
                 </div>
