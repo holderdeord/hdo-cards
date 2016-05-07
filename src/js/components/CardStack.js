@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import moment from 'moment';
-import { fetchJson, slugify } from '../utils';
+import { fetchJson, slugify, renderText } from '../utils';
 import { Sticky } from 'react-sticky';
 import { Link } from 'react-router';
 import { AnchorLink, AnchorElement, ScrollPanel } from 'react-spy-scroll';
@@ -46,15 +46,15 @@ export default class CardStack extends Component {
                     <div className="row">
                         <div className="col-lg-4">
                             <Sticky>
-                                <ul className="list-unstyled card-stack-nav p-x-1 p-y-1">
+                                <div className="card-stack-nav p-x-1 p-y-1">
                                     {data.cards.map((c, i) => (
-                                        <li key={i}>
+                                        <p key={i}>
                                             <AnchorLink href={`${slugify(c.title)}`} activeClass="strong">
-                                                {i + 1}. {c.title}
+                                                {i + 1}. {renderText(c.title)}
                                             </AnchorLink>
-                                        </li>
+                                        </p>
                                     ))}
-                                </ul>
+                                </div>
                             </Sticky>
                         </div>
 

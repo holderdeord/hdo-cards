@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RelatedServices from './RelatedServices';
 
 export default class Footer extends Component {
     render() {

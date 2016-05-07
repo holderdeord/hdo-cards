@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import slug from 'slug';
+import React from 'react';
 
 export function fetchJson(url) {
     return fetch(url, {
@@ -21,4 +22,12 @@ export function fetchHdoApi(apiPath) {
 
 export function slugify(str) {
     return slug(str, {lower: true});
+}
+
+export function renderText(str) {
+    if (str.match(/^<span/)) {
+        return <span dangerouslySetInnerHTML={{__html: str}} />
+    } else {
+        return str;
+    }
 }
