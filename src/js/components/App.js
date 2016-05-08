@@ -2,7 +2,7 @@ import '../../styles/main.scss';
 import 'babel-polyfill';
 
 import React, { Component } from 'react';
-import { Router, Route, hashHistory as history, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory as history, IndexRoute } from 'react-router';
 import { render } from 'react-dom';
 import moment from 'moment';
 import { StickyContainer, Sticky } from 'react-sticky';
