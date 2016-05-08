@@ -6,7 +6,7 @@ import moment from 'moment';
 export default class CardStackIndex extends Component {
     state = {index: {stacks: []}};
 
-    componentDidMount() {
+    componentWillMount() {
         const url = process.env.LOCAL_INDEX ? 'data/index.json' : 'https://kort.holderdeord.no/data/index.json';
 
         fetchJson(url)

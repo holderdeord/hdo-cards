@@ -4,18 +4,17 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import { Router, Route, hashHistory as history, IndexRoute } from 'react-router';
 import { render } from 'react-dom';
-
-import { StickyContainer, Sticky } from 'react-sticky';
-
 import moment from 'moment';
+import { StickyContainer, Sticky } from 'react-sticky';
+import { trackPageView } from '../utils';
+
 moment.locale('nb');
 
 import Header from './Header';
 import Footer from './Footer';
 import CardStackIndex from './CardStackIndex';
 import CardStack from './CardStack';
-
-const NoMatch = (props) => <p className="lead text-xs-center">Siden ble ikke funnet.</p>;
+import NoMatch from './NoMatch';
 
 export default class App extends Component {
     render() {
@@ -38,10 +37,10 @@ export default class App extends Component {
 render((
     <Router history={history}>
         <Route path="/" component={App}>
-            <IndexRoute component={CardStackIndex} />
+            <IndexRoute component={CardStackIndex} onEnter={trackPageView} />
 
-            <Route path="/stacks" component={CardStackIndex} />
-            <Route path="/stacks/:id" component={CardStack}/>
+            <Route path="/stacks" component={CardStackIndex} onEnter={trackPageView} />
+            <Route path="/stacks/:id" component={CardStack} onEnter={trackPageView} />
 
             <Route path="*" component={NoMatch}/>
         </Route>

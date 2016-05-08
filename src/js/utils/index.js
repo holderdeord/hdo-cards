@@ -31,3 +31,13 @@ export function renderText(str) {
         return str;
     }
 }
+
+export function trackPageView() {
+    if (process.env.NODE_ENV === 'production' && window.ga) {
+        window.ga('create', 'UA-19569290-9', 'auto');
+        window.ga('set', 'anonymizeIp', true);
+        window.ga('send', 'pageview');
+    } else {
+        console.log('Not tracking page view in development mode.');
+    }
+}
