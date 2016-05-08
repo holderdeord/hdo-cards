@@ -53,11 +53,11 @@ export default class PromisesWidget extends Component {
                 ))}
 
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-xs-7">
                         <small>Kilder: {sources.join(', ')}</small>
                     </div>
 
-                    <div className="col-md-6 text-sm-right">
+                    <div className="col-xs-5 text-xs-right">
                         <small>Søk i hele <a href="https://data.holderdeord.no/promises">løftedatabasen</a></small>
                     </div>
                 </div>
