@@ -33,11 +33,11 @@ export default class PromisesWidget extends Component {
                 {Object.keys(promisesByPromisorName).sort().map(pn => (
                     <div className="promisor" key={pn}>
                         <div className="promisor-header">
-                            <span>
+                            <div>
                                 {partiesByPromisorName[pn].map(e => <PartyLogo key={e.slug} slug={e.slug} />)}
-                            </span>
+                            </div>
 
-                            <span>{pn}</span>
+                            <div>{pn}</div>
                         </div>
 
                         <ul className="list-group">
