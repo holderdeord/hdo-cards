@@ -17,7 +17,7 @@ export default class Card extends Component {
                     {this.props.body ? this.props.body.map(::this.renderBodyElement) : null}
                 </div>
 
-                <div className="p-a-2 hidden-md-up">
+                <div className="p-a-1 hidden-md-up">
                     <div className="read-more" onClick={::this.expand}>
                         <div className={cn({'read-more-text': !this.state.expanded})}>
                             {this.props.body ? this.props.body.map(::this.renderBodyElement) : null}

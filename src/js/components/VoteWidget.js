@@ -32,14 +32,14 @@ export default class VoteWidget extends Component {
 
         return (
             <div className="vote-widget">
-                <div className="row">
+                <div className="row vote-header">
                     <div className="col-md-12">
                         <h5>
                             {vote.subject}
                         </h5>
 
                         <small className="text-muted pull-right">
-                            {moment(vote.time).format('LL')}
+                            {moment(vote.time).format('LL')}. {vote.enacted ? 'Vedtatt' : 'Ikke vedtatt'}.
                         </small>
                     </div>
                 </div>

@@ -49,14 +49,29 @@ main {
     }
 
     .widget {
-        padding: 1rem;
-        background-color: lighten($hdo-steel-blue-light, 15%);
-        margin-bottom: 1rem;
+        $widget-bg-color: lighten($hdo-steel-blue-light, 18%);
         font-size: 0.9rem;
 
-        // img {
-        //     filter: grayscale(0.3);
-        // }
+        .vote-widget {
+            background-color: $widget-bg-color;
+            padding: .5rem;
+            margin-bottom: 1rem;
+            border: $list-group-border-width solid $list-group-border-color;
+        }
+
+        .promise-widget {
+            .promisor {
+                margin-bottom: 1rem;
+
+                .promisor-header {
+                    padding: .5rem;
+                    border: $list-group-border-width solid $list-group-border-color;
+                    border-bottom-width: 0;
+                    background-color: $widget-bg-color;
+                }
+            }
+
+        }
     }
 }
 

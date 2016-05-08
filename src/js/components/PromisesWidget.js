@@ -31,24 +31,22 @@ export default class PromisesWidget extends Component {
         return (
             <div className="promise-widget">
                 {Object.keys(promisesByPromisorName).sort().map(pn => (
-                    <div className="row" key={pn}>
-                        <div className="col-md-12">
-                            <h5>
-                                <span className="p-r-1">
-                                    {partiesByPromisorName[pn].map(e => <PartyLogo key={e.slug} slug={e.slug} />)}
-                                </span>
+                    <div className="promisor" key={pn}>
+                        <div className="promisor-header">
+                            <span>
+                                {partiesByPromisorName[pn].map(e => <PartyLogo key={e.slug} slug={e.slug} />)}
+                            </span>
 
-                                {pn}
-                            </h5>
-
-                            <ul>
-                                {promisesByPromisorName[pn].map((promise, i) => (
-                                    <li key={promise._links.self.href}>
-                                        {promise.body} ({promise.parliament_period_name})
-                                    </li>
-                                ))}
-                            </ul>
+                            <span>{pn}</span>
                         </div>
+
+                        <ul className="list-group">
+                            {promisesByPromisorName[pn].map((promise, i) => (
+                                <li className="list-group-item" key={promise._links.self.href}>
+                                    {promise.body} ({promise.parliament_period_name})
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
 
